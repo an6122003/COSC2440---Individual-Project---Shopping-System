@@ -17,33 +17,25 @@ import javax.sound.midi.Soundbank;
 public class ShoppingCart {
     private final static double BASE_FEE = 0.1;
     private Set<String> shoppingCart;
-    private static ArrayList<ShoppingCart> shoppingCartList = new ArrayList();
-    private static int cartCount = 0;
     private String name; //Assume cart have different and unique name
 
     public ShoppingCart() {
         this.shoppingCart = new HashSet<String>();
-        this.name = Integer.toString(cartCount+1);
-    }
-
-    public static void createShoppingCart(){
-        shoppingCartList.add(new ShoppingCart());
-        cartCount++;
-        System.out.println("Shopping Cart created successfully!");
+        this.name = Integer.toString(ShoppingCartList.getCartCount()+1);
     }
 
     public static void viewAllShoppingCart(){
-        if (shoppingCartList.size()==0){
+        if (ShoppingCartList.getShoppingCartList().size()==0){
             System.out.println("There are no shopping cart yet.");
         }
-        for (ShoppingCart s: shoppingCartList){
+        for (ShoppingCart s: ShoppingCartList.getShoppingCartList()){
             System.out.println(s.toString());
             System.out.println();
         }
     }
     
     public static void viewAllShoppingCartSortedByWeight(){
-        if (shoppingCartList.size()==0){
+        if (ShoppingCartList.getShoppingCartList().size()==0){
             System.out.println("There are no shopping cart yet.");
         }
         System.out.println("Shopping cart sorted by weight (descending order):\n");
@@ -65,7 +57,7 @@ public class ShoppingCart {
         boolean cartFound = false;
         System.out.println("Enter Shopping cart name: ");
         name = scanner.nextLine();
-        for (ShoppingCart s: shoppingCartList){
+        for (ShoppingCart s: ShoppingCartList.getShoppingCartList()){
             if (s.getName().equals(name)){
                 System.out.println("Enter Product Name to add to shopping cart");
                 productName = scanner.nextLine();
@@ -91,7 +83,7 @@ public class ShoppingCart {
         boolean cartFound = false;
         System.out.println("Enter Shopping cart name: ");
         name = scanner.nextLine();
-        for (ShoppingCart s: shoppingCartList){
+        for (ShoppingCart s: ShoppingCartList.getShoppingCartList()){
             if (s.getName().equals(name)){
                 System.out.println("Enter Product Name to remove from shopping cart");
                 productName = scanner.nextLine();
@@ -170,15 +162,12 @@ public class ShoppingCart {
     
     public static ArrayList<ShoppingCart> sortShoppingCartByWeight(){
         ArrayList<ShoppingCart> returnSet;
-        returnSet = (ArrayList<ShoppingCart>) shoppingCartList.clone(); // Have to clone, otherwise it change the reference not the value
+        returnSet = (ArrayList<ShoppingCart>) ShoppingCartList.getShoppingCartList().clone(); // Have to clone, otherwise it change the reference not the value
         Collections.sort(returnSet,new CartComparator());
         return returnSet;
     }
 
     // Getters and Setters
-    public static ArrayList<ShoppingCart> getShoppingCartList(){
-        return shoppingCartList;
-    }
 
     public Set<String> getShoppingCart(){
         return shoppingCart;

@@ -18,10 +18,10 @@ public class SortCartByWeightTest {
         shoppingCart2.addItem("very cool"); //Heavier
 
         //Add heavier cart in order
-        ShoppingCart.getShoppingCartList().add(shoppingCart2);
-        ShoppingCart.getShoppingCartList().add(shoppingCart1);
+        ShoppingCartList.getShoppingCartList().add(shoppingCart2);
+        ShoppingCartList.getShoppingCartList().add(shoppingCart1);
 
-        assertEquals(ShoppingCart.sortShoppingCartByWeight(), ShoppingCart.getShoppingCartList());
+        assertEquals(ShoppingCart.sortShoppingCartByWeight(), ShoppingCartList.getShoppingCartList());
         
     }
 }

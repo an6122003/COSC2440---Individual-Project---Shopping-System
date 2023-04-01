@@ -66,7 +66,7 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("--------------------------------"); 
-                    ShoppingCart.createShoppingCart();
+                    ShoppingCartList.createShoppingCart();
                     System.out.println("--------------------------------");
                     break;
                 case "4":
