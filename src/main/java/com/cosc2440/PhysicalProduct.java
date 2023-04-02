@@ -6,7 +6,6 @@ package com.cosc2440;
 
 public class PhysicalProduct extends Product{
     private double weight;
-    private String giftMessage;
 
     public PhysicalProduct(String Name, String Description, int quantityAvailable, double price, double weight) throws Exception {
         super(Name, Description, quantityAvailable, price);
