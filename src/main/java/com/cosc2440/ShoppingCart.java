@@ -24,26 +24,6 @@ public class ShoppingCart {
         this.name = Integer.toString(ShoppingCartList.getCartCount()+1);
     }
 
-    public static void viewAllShoppingCart(){
-        if (ShoppingCartList.getShoppingCartList().size()==0){
-            System.out.println("There are no shopping cart yet.");
-        }
-        for (ShoppingCart s: ShoppingCartList.getShoppingCartList()){
-            System.out.println(s.toString());
-            System.out.println();
-        }
-    }
-    
-    public static void viewAllShoppingCartSortedByWeight(){
-        if (ShoppingCartList.getShoppingCartList().size()==0){
-            System.out.println("There are no shopping cart yet.");
-        }
-        System.out.println("Shopping cart sorted by weight (descending order):\n");
-        for (ShoppingCart s: ShoppingCart.sortShoppingCartByWeight()){
-            System.out.println(s.toString());
-            System.out.println();
-        }
-    }
 
     @Override
     public String toString(){
@@ -160,12 +140,7 @@ public class ShoppingCart {
         return totalWeight;
     }
     
-    public static ArrayList<ShoppingCart> sortShoppingCartByWeight(){
-        ArrayList<ShoppingCart> returnSet;
-        returnSet = (ArrayList<ShoppingCart>) ShoppingCartList.getShoppingCartList().clone(); // Have to clone, otherwise it change the reference not the value
-        Collections.sort(returnSet,new CartComparator());
-        return returnSet;
-    }
+    
 
     // Getters and Setters
 

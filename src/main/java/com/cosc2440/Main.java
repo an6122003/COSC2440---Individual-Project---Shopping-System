@@ -41,7 +41,7 @@ public class Main {
             System.out.println("4. Add product to shoping cart");
             System.out.println("5. Remove product from shoping cart");
             System.out.println("6. View all shoping cart");
-            System.out.println("7. View all shoping cart sorted by weight (descending order)");
+            System.out.println("7. View all shoping cart sorted by weight");
             System.out.println("8. Quit");
             System.out.println("--------------------------------");
             System.out.println("(Enter the according number to proceed)");
@@ -71,24 +71,24 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("--------------------------------");
-                    ShoppingCart.viewAllShoppingCart();
+                    ShoppingCartList.viewAllShoppingCart();
                     ShoppingCart.addProductToCart();
                     System.out.println("--------------------------------");
                     break;
                 case "5":
                     System.out.println("--------------------------------");
-                    ShoppingCart.viewAllShoppingCart();
+                    ShoppingCartList.viewAllShoppingCart();
                     ShoppingCart.removeProductFromCart();
                     System.out.println("--------------------------------");
                     break;
                 case "6":
                     System.out.println("--------------------------------");
-                    ShoppingCart.viewAllShoppingCart();
+                    ShoppingCartList.viewAllShoppingCart();
                     System.out.println("--------------------------------");
                     break;
                 case "7":
                     System.out.println("--------------------------------");
-                    ShoppingCart.viewAllShoppingCartSortedByWeight();
+                    ShoppingCartList.viewAllShoppingCartSortedByWeight();
                     System.out.println("--------------------------------");
                     break;
                 case "8":
