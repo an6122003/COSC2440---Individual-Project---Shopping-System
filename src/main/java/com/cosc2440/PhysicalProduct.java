@@ -7,6 +7,15 @@ package com.cosc2440;
 public class PhysicalProduct extends Product{
     private double weight;
 
+    /**
+    Constructs a new PhysicalProduct object with the specified name, description, quantity available, price, and weight.
+    @param Name the name of the physical product
+    @param Description the description of the physical product
+    @param quantityAvailable the quantity of the physical product available
+    @param price the price of the physical product
+    @param weight the weight of the physical product
+    @throws Exception if the price is negative, the quantity is less than zero, or the weight is negative or zero
+    */
     public PhysicalProduct(String Name, String Description, int quantityAvailable, double price, double weight) throws Exception {
         super(Name, Description, quantityAvailable, price);
         this.weight = weight;

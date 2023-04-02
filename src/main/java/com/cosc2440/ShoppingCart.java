@@ -19,12 +19,20 @@ public class ShoppingCart {
     private Set<String> shoppingCart;
     private String name; //Assume cart have different and unique name
 
+    /**
+    Creates a new instance of ShoppingCart with an empty HashSet of products and a unique name.
+    The name is generated based on the current number of shopping carts in the system.
+    @throws Exception if there is an error retrieving the cart count from the ShoppingCartList.
+    */
     public ShoppingCart() {
         this.shoppingCart = new HashSet<String>();
         this.name = Integer.toString(ShoppingCartList.getCartCount()+1);
     }
 
-
+    /**
+    Returns a string representation of the ShoppingCart object, including the cart number, weight, total price, and the products contained in the cart.
+    @return a string representation of the ShoppingCart object
+    */
     @Override
     public String toString(){
         return String.format("Cart number: %s, Weight: %.1f, Total Price: %.1f, Product: %s", this.name, this.calculateWeight(),this.cartAmount(),this.shoppingCart.toString());
@@ -78,6 +86,12 @@ public class ShoppingCart {
         }
     }
     
+    /**
+    Adds a product with the given name to the shopping cart.
+    @param productName the name of the product to add to the cart
+    @return true if the product was added successfully, false otherwise
+    @throws Exception if attempting to add a product already contained in the cart
+    */
     public boolean addItem(String productName) throws Exception{
         for (Product product: Product.getProductList()){
             if (product.getName().equals(productName) && product.getQuantityAvailable()>0 && !shoppingCart.contains(productName)){
@@ -89,6 +103,12 @@ public class ShoppingCart {
         return false;
     }
 
+    /**
+    Remove a product with the given name from the shopping cart.
+    @param productName the name of the product to remove from the cart
+    @return true if the product was remove successfully, false otherwise
+    @throws Exception if attempting to remove a product not exist in the cart
+    */
     public boolean removeItem(String productName) throws Exception{
         if (shoppingCart.contains(productName)){
             shoppingCart.remove(productName);
@@ -102,6 +122,10 @@ public class ShoppingCart {
         return false;
     }
 
+    /**
+    Calculates the total cost of the products in the shopping cart.
+    @return a double value of the total cost of the products in the shopping cart.
+    */
     public double cartAmount(){
         double total = 0;
         for (String s: shoppingCart){
@@ -126,6 +150,10 @@ public class ShoppingCart {
         return total;
     }
 
+    /**
+    Calculates the total weight of all the physical products in the shopping cart.
+    @return a double value of the total weight of all the physical products in the shopping cart.
+    */
     public double calculateWeight(){
         double totalWeight =0;
         for (String s: shoppingCart){

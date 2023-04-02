@@ -17,6 +17,14 @@ public abstract class Product{
     private static ArrayList<Product> productList = new ArrayList<>();
     private String giftMessage;
 
+    /**
+    Constructs a new Product object with the specified name, description, quantity available, and price.
+    @param Name the name of the product
+    @param Description the description of the product
+    @param quantityAvailable the quantity of the product available
+    @param price the price of the product
+    @throws Exception if the product name is not unique or the quantity is less than or equal to zero
+    */
     public Product(String Name, String Description, int quantityAvailable, double price) throws Exception {
         if (Product.nameCheck(Name)){
             this.Name = Name;
@@ -32,6 +40,11 @@ public abstract class Product{
         this.price = price;
     }
 
+    /**
+    Checks whether the specified product name is unique.
+    @param name the product name to check
+    @return true if the product name is unique, false if not
+    */
     public static boolean nameCheck(String name){
         for (Product product: productList){
             if (name.equals(product.getName())){
@@ -265,6 +278,9 @@ public abstract class Product{
         }
     }
 
+    /**
+    Displays the list of all the products in the store with their details.
+    */
     public static void displayProductList(){
         int count = 0;
         for (Product p: Product.getProductList()){
