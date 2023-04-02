@@ -1,5 +1,9 @@
 package com.cosc2440;
 
+/**
+ * @author Nguyen Quoc An - s3938278
+ */
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -9,15 +13,13 @@ public class Main {
         boolean quit = false;
         Scanner scanner = new Scanner(System.in);    
 
+        // Information
         System.out.println("--------------------------------");
         System.out.println("COSC2440 INDIVIDUAL PROJECT\nONLINE SHOPPING SERVICE\nInstructor: Mr. Tri Dang");
         System.out.println("STUDENT: s3938278 - Nguyen Quoc An");
         System.out.println("--------------------------------\n");
-        //create a simple text-based UI program to let users: create new products, edit products, create a new shopping cart, 
-        //add products to the current shopping cart, remove products from the current shopping cart, display the cart amount, 
-        //create a new shopping cart, display all shopping carts based on their total weight (described above).
 
-
+        // Sample products creation
         Product.getProductList().add(new DigitalProduct("Ebook", "A digital book", 10, 9.99)); 
         Product.getProductList().add(new PhysicalProduct("T-shirt", "A cotton T-shirt", 20, 19.99, 0.2));
         Product.getProductList().add(new DigitalProduct("Audiobook", "A digital audiobook", 15, 14.99));
@@ -31,6 +33,7 @@ public class Main {
         Product.getProductList().add(new GiftablePhysicalProduct("Journal","A hardcover journal with a pen holder", 15, 200, 1, "Write your heart out!"));
         Product.getProductList().add(new GiftableDigitalProduct("Online Course", "A comprehensive course on web development", 100, 500, "Happy learning!"));  
 
+        // Main program
         while (!quit){
             System.out.println("Online Shopping Service");
             System.out.println("< Choose you options >");
